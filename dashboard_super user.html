@@ -1270,10 +1270,10 @@
                 <button class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="toggleSidebar()">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <img src="public/Gemini_Generated_Image_4jitd24jitd24jit.png" alt="Profile" class="lp-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="lp-avatar" style="display:none;">TS</div>
-                <div class="lp-name">Col Tarunpreet Singh</div>
-                <div class="lp-role">Commanding Officer</div>
+                <img src="public/profile.png" alt="Profile" class="lp-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="lp-avatar" style="display:none;">U</div>
+                <div class="lp-name">Loading...</div>
+                <div class="lp-role">Loading...</div>
             </div>
             
             <!-- Navigation Toggle Button - TO BE FIXED BY JYOTI -->
@@ -1327,8 +1327,8 @@
 
                 <!-- Profile Card -->
                 <div class="profile-side-card">
-                    <img src="public/Gemini_Generated_Image_4jitd24jitd24jit.png" alt="Profile" class="avatar-box-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                    <div class="avatar-box" style="display:none;" id="profileInitials">TS</div>
+                    <img src="public/profile.png" alt="Profile" class="avatar-box-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div class="avatar-box" style="display:none;" id="profileInitials">U</div>
                     <i class="fas fa-check-circle verified"></i>
                     <div class="profile-meta">
                         <h4 id="profileName">Loading...</h4>
@@ -3941,25 +3941,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 profileImage = 'public/Gemini_Generated_Image_4jitd24jitd24jit.png';
                 break;
             case 'piyush sharma':
-                profileImage = 'public/Gemini_Generated_Image_iy5po1iy5po1iy5p.png';
+                profileImage = 'public/piyush.jpeg';
                 break;
             case 'harish kumar':
-                    profileImage = 'public/Gemini_Generated_Image_kd3igrkd3igrkd3i (1).png';
+                profileImage = 'public/harish.jpeg';
                 break;
             case 'rahul t more':
-                profileImage = 'public/Col.jpg';
-                break;
-            case 'bt01':
-                profileImage = 'public/profile.png';
+                profileImage = 'public/Rahul.jpeg';
                 break;
             default:
                 profileImage = 'public/profile.png';
         }
         
-        // Update profile images
+        // Update all profile images on the page
         const profileImages = document.querySelectorAll('.avatar-box-img, .lp-avatar-img');
         profileImages.forEach(img => {
             img.src = profileImage;
+            // Show image and hide initials avatar
+            img.style.display = 'block';
+            if (img.nextElementSibling && img.nextElementSibling.classList.contains('lp-avatar')) {
+                img.nextElementSibling.style.display = 'none';
+            }
+            if (img.nextElementSibling && img.nextElementSibling.classList.contains('avatar-box')) {
+                img.nextElementSibling.style.display = 'none';
+            }
         });
         }
 
